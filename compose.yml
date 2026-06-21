@@ -3,22 +3,16 @@ services:
     image: poornaavula1211/pyapp:db_image
     deploy:
       replicas: 1
-      resources:
-        limits:
-          cpus: '0.5'
-          memory: 250M
-        reservations:
-          cpus: '0.25'
-          memory: 200M
     ports:
       - "3306:3306"
     networks:
       - mynetwork
 
   auth_service:
+  
     image: poornaavula1211/pyapp:auth_image
     deploy:
-      replicas: 1
+      replicas: 2
     ports:
       - "5001:5001"
     networks:
@@ -27,6 +21,7 @@ services:
       - db
 
   book_service:
+  
     image: poornaavula1211/pyapp:book_image
     deploy:
       replicas: 2
@@ -45,6 +40,7 @@ services:
       - db
 
   borrow_service:
+  
     image: poornaavula1211/pyapp:borrow_image
     deploy:
       replicas: 2
