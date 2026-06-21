@@ -19,13 +19,6 @@ services:
     image: poornaavula1211/pyapp:auth_image
     deploy:
       replicas: 2
-      resources:
-        limits:
-          cpus: '0.25'
-          memory: 250M
-        reservations:
-          cpus: '0.25'
-          memory: 200M
     ports:
       - "5001:5001"
     networks:
