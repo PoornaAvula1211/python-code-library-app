@@ -1,17 +1,31 @@
 services:
   db:
-    image: poornaavula1211/pyapp:db_image
+    image: poornaavula1211/pyapp:db_img
     deploy:
       replicas: 1
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 250M
+        reservations:
+          cpus: '0.25'
+          memory: 200M
     ports:
       - "3306:3306"
     networks:
       - mynetwork
 
   auth_service:
-    image: poornaavula1211/pyapp:auth_image
+    image: poornaavula1211/pyapp:auth_img
     deploy:
-      replicas: 1
+      replicas: 2
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 250M
+        reservations:
+          cpus: '0.25'
+          memory: 200M
     ports:
       - "5001:5001"
     networks:
@@ -19,21 +33,35 @@ services:
     depends_on:
       - db
     
-
   book_service:
-    image: poornaavula1211/pyapp:book_image
+    image: poornaavula1211/pyapp:book_img
     deploy:
-      replicas: 1
+      replicas: 2
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 250M
+        reservations:
+          cpus: '0.25'
+          memory: 200M
     ports:
       - "5002:5002"
     networks:
       - mynetwork
     depends_on:
       - db
+
   borrow_service:
-    image: poornaavula1211/pyapp:borrow_image
+    image: poornaavula1211/pyapp:borrow_img
     deploy:
-      replicas: 1
+      replicas: 2
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 250M
+        reservations:
+          cpus: '0.25'
+          memory: 200M
     ports:
       - "5003:5003"
     networks:
@@ -44,7 +72,14 @@ services:
   frontend:
     image: poornaavula1211/pyapp:frontend
     deploy:
-      replicas: 1
+      replicas: 2
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 250M
+        reservations:
+          cpus: '0.25'
+          memory: 200M
     ports:
       - "5000:5000"
     networks:
