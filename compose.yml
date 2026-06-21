@@ -1,7 +1,7 @@
 ---
 services:
   db:
-    image: poornaavula1211/pyapp:db_img
+    image: poornaavula1211/pyapp:db_image
     deploy:
       replicas: 1
     ports:
@@ -10,7 +10,7 @@ services:
       - mynetwork
 
   auth_service:
-    image: poornaavula1211/pyapp:auth_img
+    image: poornaavula1211/pyapp:auth_image
     deploy:
       replicas: 1
     ports:
@@ -22,7 +22,7 @@ services:
     
 
   book_service:
-    image: poornaavula1211/pyapp:book_img
+    image: poornaavula1211/pyapp:book_image
     deploy:
       replicas: 1
     ports:
@@ -33,7 +33,7 @@ services:
       - db
       
   borrow_service:
-    image: poornaavula1211/pyapp:borrow_img
+    image: poornaavula1211/pyapp:borrow_image
     deploy:
       replicas: 1
     ports:
@@ -44,7 +44,7 @@ services:
       - db
 
   frontend:
-    image: poornaavula1211/pyapp:frontend
+    image: poornaavula1211/pyapp:frontendimg
     deploy:
       replicas: 1
     ports:
